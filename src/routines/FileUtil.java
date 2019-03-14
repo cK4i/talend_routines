@@ -61,6 +61,33 @@ public class FileUtil {
 	}
 
 	/**
+	 * Returns the parent directory of the file
+	 * 
+	 * {Category} FileUtil
+	 * 
+	 * {param} string(fullPath) fullPath: String.
+	 * 
+	 * {example} getFileParentDir(fullPath) # ""
+	 */
+	public static String getParentDir(String filePath) {
+		return getFileDir(filePath);
+	}
+
+	/**
+	 * Returns the name of the parent directory of the file or dir
+	 * 
+	 * {Category} FileUtil
+	 * 
+	 * {param} string(fullPath) fullPath: String.
+	 * 
+	 * {example} getParentDirName("/var/data/talend") # "data"
+	 */
+	public static String getParentDirName(String filePath) {
+		return getFileDir(filePath).replace(getFileDir(getFileDir(filePath)) + "/", "") ;
+	}
+
+	
+	/**
 	 * Returns the name of file without path
 	 * 
 	 * {Category} StringUtil
