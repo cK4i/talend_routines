@@ -83,7 +83,15 @@ public class FileUtil {
 	 * {example} getParentDirName("/var/data/talend") # "data"
 	 */
 	public static String getParentDirName(String filePath) {
-		return getFileDir(filePath).replace(getFileDir(getFileDir(filePath)) + "/", "") ;
+		//return getFileDir(filePath).replace(getFileDir(getFileDir(filePath)) + "/", "") ;
+		filePath = filePath.replace('\\', '/');
+		File f = new File(filePath);
+		String parent = f.getParentFile().getName();
+		if (parent != null) {
+			return parent;
+		} else {
+			return "";
+		}
 	}
 
 	
